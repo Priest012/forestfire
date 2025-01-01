@@ -4,7 +4,8 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 import pandas as pd
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 
 ## import ridge scaler model and standard scaler model pickle
 
@@ -16,6 +17,7 @@ standard_scaler = pickle.load(open('models/scaler.pkl','rb'))
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/predictdata',methods=['GET', 'POST'])
 def predict_datapoint():
